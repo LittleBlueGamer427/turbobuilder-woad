@@ -9,6 +9,7 @@ function register() {
     registerBlock(`${categoryPrefix}xpos`, {
         message0: 'x position',
         args0: [],
+        output: null,
         previousStatement: null,
         inputsInline: true,
         colour: categoryColor
