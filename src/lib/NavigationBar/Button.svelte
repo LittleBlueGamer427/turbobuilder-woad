@@ -20,6 +20,7 @@
 
         height: 100%;
         padding: 0 0.75rem;
+        border-radius: 100px;
 
         display: flex;
         flex-direction: row;
