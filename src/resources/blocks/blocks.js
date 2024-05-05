@@ -8,7 +8,7 @@ const categoryColor = '#FF6680';
 function register() {
     // create dem blocks!!!
     registerBlock(`${categoryPrefix}create`, {
-        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 inputs: %8 %9 function: %10 %11',
+        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 async? %8 %9 inputs: %10 %11 function: %12',
         args0: [
             {
                 "type": "input_dummy"
@@ -44,6 +44,14 @@ function register() {
                 "type": "input_dummy"
             },
             {
+                "type": "field_dropdown",
+                "name": "ASYNC",
+                "options": [
+                    [ "yes", "" ],
+                    [ "no", " async" ],
+                ]
+            },
+            {
                 "type": "input_dummy"
             },
             {
@@ -76,7 +84,7 @@ function register() {
             arguments: { ${INPUTS} },
             disableMonitor: true
         });
-        Extension.prototype[\`${ID}\`] = async (args, util) => { ${FUNC} };`;
+        Extension.prototype[\`${ID}\`] =${ASYNC} (args, util) => { ${FUNC} };`;
         return `${code}\n`;
     })
 
