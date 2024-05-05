@@ -395,7 +395,7 @@
         class="project-name"
         type="text"
         placeholder="Extension ID (ex: extensionID)"
-        style="margin-left:4px;margin-right:4px"
+        style="margin-left:4px;margin-right:4px;border-radius:666px"
         data-invalid={isExtensionIDInvalid(projectID)}
         bind:value={projectID}
         on:change={updateGeneratedCode}
@@ -410,7 +410,7 @@
         class="project-name"
         type="text"
         placeholder="Extension Name (ex: Extension)"
-        style="margin-left:4px;margin-right:4px"
+        style="margin-left:4px;margin-right:4px;border-radius:666px"
         bind:value={projectName}
         on:change={updateGeneratedCode}
     />
