@@ -9,7 +9,7 @@ function register() {
     registerBlock(`${categoryPrefix}xpos`, {
         message0: 'true',
         args0: [],
-        output: "Reporter",
+        output: "String",
         inputsInline: true,
         colour: categoryColor
     }, () => {
