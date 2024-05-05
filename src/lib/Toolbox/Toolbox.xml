@@ -141,4 +141,8 @@
         <sep gap="48"></sep>
         <block type="debug_catch" />
     </category>
+    <sep></sep>
+    <category name="Motion" colour="#59C08E">
+        <block type="motion_xpos" />
+    </category>
 </xml>
