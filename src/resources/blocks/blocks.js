@@ -59,7 +59,7 @@ function register() {
                 "type": "field_dropdown",
                 "name": "EDGE",
                 "options": [
-                    [ "no (WARNING: IS NECESSARY IF ITS A HAT)", "false" ],
+                    [ "no", "false" ],
                     [ "yes", "true" ],
                 ]
             },
