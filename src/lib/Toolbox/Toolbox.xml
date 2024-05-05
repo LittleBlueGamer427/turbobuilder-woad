@@ -142,7 +142,7 @@
         <block type="debug_catch" />
     </category>
     <sep></sep>
-    <category name="Motion" colour="#59C08E">
+    <category name="Motion" colour="#4c97ff">
         <block type="motion_xpos" />
     </category>
 </xml>
