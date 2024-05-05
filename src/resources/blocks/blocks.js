@@ -8,7 +8,7 @@ const categoryColor = '#FF6680';
 function register() {
     // create dem blocks!!!
     registerBlock(`${categoryPrefix}create`, {
-        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 async? %8 %9 edge activated? %10 %11 inputs: %12 %13 function: %14 %15',
+        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 with screen refresh? %8 %9 edge activated? %10 %11 inputs: %12 %13 function: %14 %15',
         args0: [
             {
                 "type": "input_dummy"
