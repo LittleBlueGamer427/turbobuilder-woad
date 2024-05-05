@@ -7,8 +7,9 @@ const categoryColor = '#4c97ff';
 function register() {
     // x position
     registerBlock(`${categoryPrefix}xpos`, {
-        message0: 'xpos',
+        message0: 'x position',
         args0: [],
+        previousStatement: null,
         inputsInline: true,
         colour: categoryColor
     }, () => {
