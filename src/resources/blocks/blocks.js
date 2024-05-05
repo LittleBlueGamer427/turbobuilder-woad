@@ -47,8 +47,8 @@ function register() {
                 "type": "field_dropdown",
                 "name": "ASYNC",
                 "options": [
-                    [ "yes", "=" ],
-                    [ "no", " = async" ],
+                    [ "yes", "= async" ],
+                    [ "no", " =" ],
                 ]
             },
             {
