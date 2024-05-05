@@ -47,8 +47,8 @@ function register() {
                 "type": "field_dropdown",
                 "name": "ASYNC",
                 "options": [
-                    [ "yes", "" ],
-                    [ "no", " async" ],
+                    [ "yes", "=" ],
+                    [ "no", " = async" ],
                 ]
             },
             {
@@ -84,7 +84,7 @@ function register() {
             arguments: { ${INPUTS} },
             disableMonitor: true
         });
-        Extension.prototype[\`${ID}\`] =${ASYNC} (args, util) => { ${FUNC} };`;
+        Extension.prototype[\`${ID}\`] ${ASYNC} (args, util) => { ${FUNC} };`;
         return `${code}\n`;
     })
 
