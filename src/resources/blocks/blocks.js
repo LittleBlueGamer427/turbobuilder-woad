@@ -77,6 +77,7 @@ function register() {
         const ID = block.getFieldValue('ID')
         const TEXT = block.getFieldValue('TEXT')
         const TYPE = block.getFieldValue('TYPE')
+        const ASYNC = block.getFieldValue('ASYNC')
         const INPUTS = javascriptGenerator.statementToCode(block, 'INPUTS');
         const FUNC = javascriptGenerator.statementToCode(block, 'FUNC');
         
