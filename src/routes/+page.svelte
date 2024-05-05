@@ -78,6 +78,7 @@
     registerBlocks();
     registerFunctions();
     registerDebug();
+    registerMotion();
 
     const en = {
         rtl: false,
