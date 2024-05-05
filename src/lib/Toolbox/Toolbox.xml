@@ -144,5 +144,6 @@
     <sep></sep>
     <category name="Motion" colour="#4c97ff">
         <block type="motion_xpos" />
+        <block type="motion_ypos" />
     </category>
 </xml>
