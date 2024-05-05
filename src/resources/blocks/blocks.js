@@ -8,7 +8,7 @@ const categoryColor = '#FF6680';
 function register() {
     // create dem blocks!!!
     registerBlock(`${categoryPrefix}create`, {
-        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 async? %8 %9 inputs: %10 %11 function: %12 %13',
+        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 async? %8 edge activated? %9 %10 inputs: %11 %12 function: %12 %13',
         args0: [
             {
                 "type": "input_dummy"
@@ -56,6 +56,17 @@ function register() {
                 "type": "input_dummy"
             },
             {
+                "type": "field_dropdown",
+                "name": "EDGE",
+                "options": [
+                    [ "no (WARNING: IS NECESSARY IF ITS A HAT)", "false" ],
+                    [ "yes", "true" ],
+                ]
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
                 "type": "input_dummy"
             },
             {
@@ -79,6 +90,7 @@ function register() {
         const TEXT = block.getFieldValue('TEXT')
         const TYPE = block.getFieldValue('TYPE')
         const ASYNC = block.getFieldValue('ASYNC')
+        const EDGE = block.getFieldValue('EDGE')
         const INPUTS = javascriptGenerator.statementToCode(block, 'INPUTS');
         const FUNC = javascriptGenerator.statementToCode(block, 'FUNC');
         
@@ -86,6 +98,7 @@ function register() {
             opcode: \`${ID}\`,
             blockType: Scratch.BlockType.${TYPE},
             text: \`${TEXT}\`,
+            isEdgeActivated: ${EDGE},
             arguments: { ${INPUTS} },
             disableMonitor: true
         });
