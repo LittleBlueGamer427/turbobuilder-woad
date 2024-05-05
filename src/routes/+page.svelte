@@ -63,6 +63,7 @@
     import registerBlocks from "../resources/blocks/blocks.js";
     import registerFunctions from "../resources/blocks/functions.js";
     import registerDebug from "../resources/blocks/debug.js";
+    import registerMotion from "../resources/blocks/motion.js";
     
     registerCore();
     registerControl();
