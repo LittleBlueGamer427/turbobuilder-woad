@@ -16,6 +16,16 @@ function register() {
     }, () => {
         return [`util.target.x`, javascriptGenerator.ORDER_ATOMIC];
     })
+    registerBlock(`${categoryPrefix}ypos`, {
+        message0: 'y position',
+        args0: [],
+        output: null,
+        previousStatement: null,
+        inputsInline: true,
+        colour: categoryColor
+    }, () => {
+        return [`util.target.y`, javascriptGenerator.ORDER_ATOMIC];
+    })
 }
 
 export default register;
