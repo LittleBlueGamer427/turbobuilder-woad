@@ -21,7 +21,7 @@
         background: transparent;
         cursor: pointer;
         border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 4px;
+        border-radius: 666px;
     }
     button:focus,
     button:hover,
