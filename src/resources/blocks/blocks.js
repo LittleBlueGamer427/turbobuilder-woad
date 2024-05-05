@@ -38,6 +38,7 @@ function register() {
                     [ "block", "COMMAND" ],
                     [ "reporter", "REPORTER" ],
                     [ "boolean", "BOOLEAN" ],
+                    [ "hat (runs when it returns true)", "HAT" ],
                 ]
             },
             {
