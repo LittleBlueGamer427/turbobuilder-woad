@@ -22,7 +22,7 @@ function register() {
         const code = `util.target.setSize(${VALUE || 0})`;
         return `${code}\n`;
     })
-  registerBlock(`${categoryPrefix}changesize`, {
+    registerBlock(`${categoryPrefix}changesize`, {
         message0: 'change size by %1',
         args0: [
             {
