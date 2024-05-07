@@ -48,7 +48,7 @@ function register() {
         nextStatement: null,
         colour: categoryColor
     }, () => {
-        const VALUE = block.getFieldValue('VALUE');
+        const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
         const code = `util.target.setXY(${'VALUE'}, util.target.y)`;
         return `${code}\n`;
     })
@@ -64,8 +64,8 @@ function register() {
         nextStatement: null,
         colour: categoryColor
     }, () => {
-        const VALUE = block.getFieldValue('VALUE');
-        const code = `util.target.setXY(util.target.x, ${'VALUE'})`;
+        const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
+        const code = `util.target.setXY(util.target.x, ${VALUE})`;
         return `${code}\n`;
     })
 }
