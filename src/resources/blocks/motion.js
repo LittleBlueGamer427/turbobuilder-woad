@@ -49,7 +49,7 @@ function register() {
         inputsInline: true,
         colour: categoryColor
     }, () => {
-        const VALUE = block.getFieldValue('VALUE')
+        const VALUE = block.getFieldValue('VALUE');
         return [`util.target.setXY(${VALUE}, util.target.y);`, javascriptGenerator.ORDER_ATOMIC];
     })
     registerBlock(`${categoryPrefix}sety`, {
@@ -65,7 +65,7 @@ function register() {
         inputsInline: true,
         colour: categoryColor
     }, () => {
-        const VALUE = block.getFieldValue('VALUE')
+        const VALUE = block.getFieldValue('VALUE');
         return [`util.target.setXY(util.target.x, ${VALUE});`, javascriptGenerator.ORDER_ATOMIC];
     })
 }
