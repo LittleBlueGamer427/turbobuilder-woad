@@ -2,7 +2,8 @@
     <category name="Motion" colour="#4c97ff">
         <block type="motion_xpos" />
         <block type="motion_ypos" />
-        <block type="motion_setaxis" />
+        <block type="motion_setx" />
+        <block type="motion_sety" />
     </category>
     <category name="Events" colour="#FFBF00">
         <block type="events_interval" />
