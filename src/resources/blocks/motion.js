@@ -50,7 +50,7 @@ function register() {
         colour: categoryColor
     }, (block) => {
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
-        const code = `util.target.setXY(${'VALUE'}, util.target.y)`;
+        const code = `util.target.setXY(${VALUE || 0}, util.target.y)`;
         return `${code}\n`;
     })
     registerBlock(`${categoryPrefix}sety`, {
@@ -67,7 +67,7 @@ function register() {
         colour: categoryColor
     }, (block) => {
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
-        const code = `util.target.setXY(util.target.x, ${VALUE})`;
+        const code = `util.target.setXY(util.target.x, ${VALUE || 0})`;
         return `${code}\n`;
     })
 }
