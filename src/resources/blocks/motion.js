@@ -13,7 +13,7 @@ function register() {
         previousStatement: null,
         inputsInline: true,
         colour: categoryColor
-    }, () => {
+    }, (block) => {
         return [`util.target.x`, javascriptGenerator.ORDER_ATOMIC];
     })
     registerBlock(`${categoryPrefix}ypos`, {
@@ -23,7 +23,7 @@ function register() {
         previousStatement: null,
         inputsInline: true,
         colour: categoryColor
-    }, () => {
+    }, (block) => {
         return [`util.target.y`, javascriptGenerator.ORDER_ATOMIC];
     })
     registerBlock(`${categoryPrefix}dir`, {
@@ -33,7 +33,7 @@ function register() {
         previousStatement: null,
         inputsInline: true,
         colour: categoryColor
-    }, () => {
+    }, (block) => {
         return [`util.target.direction`, javascriptGenerator.ORDER_ATOMIC];
     })
     registerBlock(`${categoryPrefix}setx`, {
@@ -46,8 +46,9 @@ function register() {
         ],
         previousStatement: null,
         nextStatement: null,
+        inputsInline: true,
         colour: categoryColor
-    }, () => {
+    }, (block) => {
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
         const code = `util.target.setXY(${'VALUE'}, util.target.y)`;
         return `${code}\n`;
@@ -62,8 +63,9 @@ function register() {
         ],
         previousStatement: null,
         nextStatement: null,
+        inputsInline: true,
         colour: categoryColor
-    }, () => {
+    }, (block) => {
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
         const code = `util.target.setXY(util.target.x, ${VALUE})`;
         return `${code}\n`;
