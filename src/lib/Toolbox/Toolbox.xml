@@ -1,11 +1,11 @@
 <xml>
     <category name="Motion" colour="#4c97ff">
-        <block type="motion_xpos" />
-        <block type="motion_ypos" />
         <block type="motion_setx" />
         <block type="motion_sety" />
         <block type="motion_setdir" />
         <block type="motion_turndegrees" />
+        <block type="motion_xpos" />
+        <block type="motion_ypos" />
     </category>
     <category name="Events" colour="#FFBF00">
         <block type="events_interval" />
