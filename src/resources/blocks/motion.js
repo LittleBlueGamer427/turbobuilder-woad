@@ -36,17 +36,9 @@ function register() {
     }, () => {
         return [`util.target.direction`, javascriptGenerator.ORDER_ATOMIC];
     })
-    registerBlock(`${categoryPrefix}setaxis`, {
-        message0: 'set %1 to %2',
+    registerBlock(`${categoryPrefix}setx`, {
+        message0: 'set x to %1',
         args0: [
-            {
-                "type": "field_dropdown",
-                "name: "AXIS",
-                "options": [
-                    [ "x", "${VALUE}, util.target.y" ],
-                    [ "y", "util.target.x, ${VALUE}" ],
-                ]  
-            },
             {
                 "type": "input_value",
                 "name: "VALUE",
@@ -57,9 +49,24 @@ function register() {
         inputsInline: true,
         colour: categoryColor
     }, () => {
-        const AXIS = block.getFieldValue('AXIS')
         const VALUE = block.getFieldValue('VALUE')
-        return [`util.target.setXY(${AXIS});`, javascriptGenerator.ORDER_ATOMIC];
+        return [`util.target.setXY(${VALUE}, util.target.y);`, javascriptGenerator.ORDER_ATOMIC];
+    })
+    registerBlock(`${categoryPrefix}sety`, {
+        message0: 'set y to %1',
+        args0: [
+            {
+                "type": "input_value",
+                "name: "VALUE",
+            }
+        ],
+        previousStatement: null,
+        nextStatement: null,
+        inputsInline: true,
+        colour: categoryColor
+    }, () => {
+        const VALUE = block.getFieldValue('VALUE')
+        return [`util.target.setXY(util.target.x, ${VALUE});`, javascriptGenerator.ORDER_ATOMIC];
     })
 }
 
