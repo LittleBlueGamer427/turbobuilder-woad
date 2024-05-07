@@ -4,6 +4,8 @@
         <block type="motion_ypos" />
         <block type="motion_setx" />
         <block type="motion_sety" />
+        <block type="motion_setdir" />
+        <block type="motion_turndegrees" />
     </category>
     <category name="Events" colour="#FFBF00">
         <block type="events_interval" />
