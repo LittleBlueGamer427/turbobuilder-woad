@@ -3,6 +3,9 @@
         <block type="motion_xpos" />
         <block type="motion_ypos" />
     </category>
+    <category name="Sound" colour="#CF63CF">
+        <block type="sound_startsound" />
+    </category>
     <category name="Events" colour="#FFBF00">
         <block type="events_interval" />
         <block type="events_timeout" />
@@ -21,9 +24,6 @@
         <block type="control_case" />
         <block type="control_default" />
         <block type="control_break" />
-    </category>
-    <category name="Sound" colour="#CF63CF">
-        <block type="sound_startsound" />
     </category>
     <category name="Sensing" colour="#5CB1D6">
         <!--
