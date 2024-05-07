@@ -40,7 +40,7 @@ function register() {
         return `${code}\n`;
     })
     registerBlock(`${categoryPrefix}size`, {
-        message0: 'size,
+        message0: 'size',
         args0: [],
         output: null,
         previousStatement: null,
