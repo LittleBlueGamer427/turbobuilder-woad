@@ -41,7 +41,7 @@ function register() {
         args0: [
             {
                 "type": "input_value",
-                "name: "VALUE"
+                "name": "VALUE"
             }
         ],
         previousStatement: null,
@@ -57,7 +57,7 @@ function register() {
         args0: [
             {
                 "type": "input_value",
-                "name: "VALUE"
+                "name": "VALUE"
             }
         ],
         previousStatement: null,
