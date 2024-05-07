@@ -46,11 +46,11 @@ function register() {
         ],
         previousStatement: null,
         nextStatement: null,
-        inputsInline: true,
         colour: categoryColor
     }, () => {
         const VALUE = block.getFieldValue('VALUE');
-        return [`util.target.setXY(${VALUE}, util.target.y)`, javascriptGenerator.ORDER_ATOMIC];
+        const code = `util.target.setXY(${'VALUE'}, util.target.y)`;
+        return `${code}\n`;
     })
     registerBlock(`${categoryPrefix}sety`, {
         message0: 'set y to %1',
@@ -62,11 +62,11 @@ function register() {
         ],
         previousStatement: null,
         nextStatement: null,
-        inputsInline: true,
         colour: categoryColor
     }, () => {
         const VALUE = block.getFieldValue('VALUE');
-        return [`util.target.setXY(util.target.x, ${VALUE})`, javascriptGenerator.ORDER_ATOMIC];
+        const code = `util.target.setXY(util.target.x, ${'VALUE'})`;
+        return `${code}\n`;
     })
 }
 
