@@ -65,6 +65,7 @@
     import registerMenus from "../resources/blocks/menus.js";
     import registerDebug from "../resources/blocks/debug.js";
     import registerMotion from "../resources/blocks/motion.js";
+    import registerLooks from "../resources/blocks/looks.js";
     
     registerCore();
     registerControl();
@@ -81,6 +82,7 @@
     registerDebug();
     registerMotion();
     registerMenus();
+    registerLooks();
 
     const en = {
         rtl: false,
