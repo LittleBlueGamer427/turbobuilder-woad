@@ -86,7 +86,6 @@ function register() {
         message0: 'x position',
         args0: [],
         output: null,
-        previousStatement: null,
         inputsInline: true,
         colour: categoryColor
     }, (block) => {
@@ -96,7 +95,6 @@ function register() {
         message0: 'y position',
         args0: [],
         output: null,
-        previousStatement: null,
         inputsInline: true,
         colour: categoryColor
     }, (block) => {
@@ -106,7 +104,6 @@ function register() {
         message0: 'direction',
         args0: [],
         output: null,
-        previousStatement: null,
         inputsInline: true,
         colour: categoryColor
     }, (block) => {
