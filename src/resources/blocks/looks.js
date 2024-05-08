@@ -43,7 +43,6 @@ function register() {
         message0: 'size',
         args0: [],
         output: null,
-        previousStatement: null,
         inputsInline: true,
         colour: categoryColor
     }, (block) => {
