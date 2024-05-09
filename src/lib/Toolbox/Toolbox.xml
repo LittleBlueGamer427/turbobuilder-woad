@@ -68,6 +68,7 @@
         <sep gap="48"></sep>
         <block type="operators_and" />
         <block type="operators_or" />
+        <block type="operators_xor" />
         <block type="operators_not" />
         <sep gap="48"></sep>
         <block type="operators_add" />
@@ -80,10 +81,12 @@
         <block type="operators_root" />
         <block type="operators_adv" />
         <sep gap="48"></sep>
+        <block type="operators_random" />
         <block type="operators_randomint" />
         <sep gap="48"></sep>
         <block type="operators_join" />
         <block type="operators_letter" />
+        <block type="operators_length" />
     </category>
     <category name="Conversions" colour="#8BC059">
         <block type="conversions_tonumber" />
