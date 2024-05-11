@@ -201,94 +201,72 @@
     function downloadProject() {
         // generate file name
         let filteredProjectName = (projectName || projectID).replace(/[^a-z0-9\-]+/gim, "_");
-        let fileName = filteredProjectName + ".tb";
+        let fileName = filteredProjectName + ".tbw";
         if (!filteredProjectName) {
-            fileName = "MyProject.tb";
+            fileName = "MyProject.tbw";
         }
 
-        // data
-        let projectData = Blockly.serialization.workspaces.save(workspace)
+        // Prepare project data
+        let projectData = Blockly.serialization.workspaces.save(workspace);
 
-        // modify data by me wow
+        // Modify data
         projectData = {
             blockly: projectData,
             metadata: extensionMetadata,
             images: extensionImageStates
-        }
+        };
 
-        // zip
-        const zip = new JSZip();
-        zip.file(
-            "README.txt",
-            "This file is not meant to be opened!" +
-                "\nBe careful as you can permanently break your project!"
-        );
+        // Prepare TurboWarp extension code preceded by TurboBuilder Woad project data as a comment
+        let extensionCode = `//${JSON.stringify(projectData)}\n` +
+            `class HelloWorld {\n` +
+            `  getInfo() {\n` +
+            `    return {\n` +
+            `      id: 'helloworld',\n` +
+            `      name: 'It works!',\n` +
+            `      blocks: [\n` +
+            `        {\n` +
+            `          opcode: 'hello',\n` +
+            `          blockType: Scratch.BlockType.REPORTER,\n` +
+            `          text: 'Hello!'\n` +
+            `        }\n` +
+            `      ]\n` +
+            `    };\n` +
+            `  }\n` +
+            `  hello() {\n` +
+            `    return 'World!';\n` +
+            `  }\n` +
+            `}\n` +
+            `Scratch.extensions.register(new HelloWorld());`;
 
-        // data
-        const data = zip.folder("data");
-        data.file("project.json", JSON.stringify(projectData));
-
-        // download
-        zip.generateAsync({ type: "blob" }).then((blob) => {
-            FileSaver.saveAs(blob, fileName);
-        });
+        // Download
+        const blob = new Blob([extensionCode], { type: 'text/javascript' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = fileName;
+        link.click();
     }
+
     function loadProject() {
-        fileDialog({ accept: ".tb" }).then((files) => {
+        fileDialog({ accept: ".tbw" }).then((files) => {
             if (!files) return;
             const file = files[0];
 
-            const projectNameIdx = file.name.lastIndexOf(".tb");
-
-            JSZip.loadAsync(file.arrayBuffer()).then(async (zip) => {
-                console.log("loaded zip file...");
-
-                // get project json from the data folder
-                const dataFolder = zip.folder("data");
-                const projectJsonString = await dataFolder
-                    .file("project.json")
-                    .async("string");
-                const projectJson = JSON.parse(projectJsonString);
-
-                // do your thing
-                projectName = projectJson.metadata.name
-                projectID = projectJson.metadata.id
-                for (var i in projectJson.metadata) {
-                    var v = projectJson.metadata[i]
-                    extensionMetadata[i] = v
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const fileContents = event.target.result;
+                const lines = fileContents.split('\n');
+                // Check if the first line is a comment starting with "//"
+                if (lines.length > 0 && lines[0].trim().startsWith('//')) {
+                    const projectDataString = lines[0].substring(2).trim(); // Remove the "//" and trim spaces
+                    const projectData = JSON.parse(projectDataString);
+                    // You can use the projectData here as needed
+                    console.log(projectData);
                 }
-                for (var i in projectJson.images) {
-                    var v = projectJson.images[i]
-                    extensionImageStates[i] = v
-                }
-
-                // get project workspace xml stuffs
-                const workspacesFolder = zip.folder("workspaces");
-                const fileNames = [];
-                workspacesFolder.forEach((_, file) => {
-                    const fileName = file.name.replace("workspaces/", "");
-                    fileNames.push(fileName);
-                });
-                // console.log(fileNames); // debug
-                const idWorkspacePairs = {};
-                for (const fileName of fileNames) {
-                    const idx = fileName.lastIndexOf(".xml");
-                    const id = fileName.substring(0, idx);
-                    // assign to pairs
-                    idWorkspacePairs[id] = await workspacesFolder
-                        .file(fileName)
-                        .async("string");
-                }
-                // console.log(idWorkspacePairs); // debug
-
-                // laod
-                console.log(projectJson); // debug
-                Blockly.serialization.workspaces.load(projectJson.blockly, workspace);
-
-                updateGeneratedCode()
-            });
+            };
+            reader.readAsText(file);
         });
     }
+
 
     // code display & handling
     function beautifyGeneratedCode(code) {
