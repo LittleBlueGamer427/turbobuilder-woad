@@ -220,8 +220,11 @@
         const zip = new JSZip();
         zip.file(
             "README.txt",
-            "This file is not meant to be opened!" +
-                "\nBe careful as you can permanently break your project!"
+            "warning" +
+                "\nthis file is not meant to be opened" +
+                "\nand its for use  o n l y  on turbobuilder-woad.vercel.app" +
+                "\nalso if you were expecting an extension in here you were using it wrong hit copy or download above the generated code" +
+                "\nand be careful yo can permanet break project"
         );
 
         // data
