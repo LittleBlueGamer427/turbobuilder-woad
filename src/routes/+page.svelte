@@ -261,6 +261,8 @@
                     const projectData = JSON.parse(projectDataString);
                     // You can use the projectData here as needed
                     console.log(projectData);
+                    Blockly.serialization.workspaces.load(projectJson.blockly, workspace);
+                    updateGeneratedCode();
                 }
             };
             reader.readAsText(file);
