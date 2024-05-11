@@ -203,7 +203,7 @@
         let filteredProjectName = (projectName || projectID).replace(/[^a-z0-9\-]+/gim, "_");
         let fileName = filteredProjectName + ".tbw";
         if (!filteredProjectName) {
-            fileName = "MyProject.tb";
+            fileName = "MyProject.tbw";
         }
 
         // data
@@ -234,7 +234,7 @@
         });
     }
     function loadProject() {
-        fileDialog({ accept: ".tb" }).then((files) => {
+        fileDialog({ accept: ".tbw" }).then((files) => {
             if (!files) return;
             const file = files[0];
 
