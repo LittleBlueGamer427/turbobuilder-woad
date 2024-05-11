@@ -38,7 +38,7 @@ function register() {
                     [ "block", "COMMAND" ],
                     [ "reporter", "REPORTER" ],
                     [ "boolean", "BOOLEAN" ],
-                    [ "hat (runs when it returns true)", "HAT" ],
+                    [ "hat", "EVENT" ],
                 ]
             },
             {
@@ -162,6 +162,43 @@ function register() {
         return `${code}\n`;
     })
 
+    registerBlock(`${categoryPrefix}menu`, {
+        message0: 'create menu input %1 id: %2 %3 menu: %4',
+        args0: [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_input",
+                "name": "ID",
+                "text": "ID",
+                "spellcheck": false
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_input",
+                "name": "MENU",
+                "text": "ID",
+                "spellcheck": false
+            },
+        ],
+        nextStatement: "BlockInput",
+        previousStatement: "BlockInput",
+        inputsInline: false,
+        colour: categoryColor,
+    }, (block) => {
+        const ID = block.getFieldValue('ID')
+        const MENU = block.getFieldValue('MENU')
+        
+        const code = `"${ID}": {
+            type: Scratch.ArgumentType.STRING,
+            menu: '${MENU}'
+        },`;
+        return `${code}\n`;
+    })
+
     // get input
     registerBlock(`${categoryPrefix}get`, {
         message0: 'get %1',
@@ -196,6 +233,25 @@ function register() {
     }, (block) => {
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
         const code = `return ${VALUE || ''}`;
+        return `${code}\n`;
+    })
+    registerBlock(`${categoryPrefix}callhat`, {
+        message0: 'call hat %1',
+        args0: [
+            {
+                "type": "field_input",
+                "name": "NAME",
+                "text": "HATID",
+                "spellcheck": false
+            }
+        ],
+        previousStatement: null,
+        nextStatement: null,
+        inputsInline: true,
+        colour: categoryColor,
+    }, (block) => {
+        const NAME = block.getFieldValue('NAME')
+        const code = `Scratch.vm.runtime.startHats(\`\${Extension.prototype.getInfo().id}_${NAME}\`)`;
         return `${code}\n`;
     })
 }
