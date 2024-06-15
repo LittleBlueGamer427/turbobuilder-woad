@@ -1,4 +1,14 @@
 <xml>
+    <category name="Sprites" colour="#4C97FF">
+        <block type="sprites_getsprite" />
+        <sep gap="48"></sep>
+        <block type="sprites_stage" />
+        <block type="sprites_isstage" />
+        <sep gap="48"></sep>
+        <block type="sprites_getx" />
+        <block type="sprites_gety" />
+        <block type="sprites_getdir" />
+    </category>
     <category name="Motion" colour="#4c97ff">
         <block type="motion_setx" />
         <block type="motion_sety" />
