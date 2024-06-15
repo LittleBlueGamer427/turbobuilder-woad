@@ -23,12 +23,12 @@
         <block type="looks_changesize" />
         <block type="looks_size" />
     </category>
+    <category name="Sound" colour="#CF63CF">
+        <block type="sound_startsound" />
+    </category>
     <category name="Events" colour="#FFBF00">
         <block type="events_interval" />
         <block type="events_timeout" />
-    </category>
-    <category name="Sound" colour="#CF63CF">
-        <block type="sound_startsound" />
     </category>
     <category name="Control" colour="#FFAB19">
         <block type="control_wait" />
