@@ -140,13 +140,13 @@ class Compiler {
 
         const headerCode = [
             `/*`,
-            `   this was made with a stupid fork of turbobuilder by lbg`,
-            `   https://turbobuilder-woad.vercel.app/`,
+            `   This extension was made with TurboBuilder!`,
+            `   https://turbobuilder-steel.vercel.app/`,
             `*/`,
             `(async function (Scratch) {`,
             `const variables = {};`,
             `const blocks = [];`,
-            `const menus = [];`,
+            `const menus = {};`,
             ``,
             start
         ];
@@ -198,7 +198,7 @@ class Compiler {
 
         return [].concat(headerCode, classRegistry.top, [
             `getInfo() {`,
-            `return ${JSON.stringify(classRegistry.extensionInfo).substring(0, JSON.stringify(classRegistry.extensionInfo).length - 1) + ', "blocks": blocks }'}`,
+            `return ${JSON.stringify(classRegistry.extensionInfo).substring(0, JSON.stringify(classRegistry.extensionInfo).length - 1) + ', "blocks": blocks, "menus": menus }'}`,
             `}`,
         ], classRegistry.bottom, code, footerCode).join('\n');
     }
