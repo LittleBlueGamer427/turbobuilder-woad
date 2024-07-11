@@ -41,6 +41,32 @@ function register() {
         return [`String(${VAL})`, javascriptGenerator.ORDER_ATOMIC];
     })
 
+    registerBlock(`${categoryPrefix}cast`, {
+        message0: "cast %1 to %2",
+        args0: [
+            {
+                "type": "input_value",
+                "name": "VAL"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "TYPE",
+                "options": [
+                    [ "string", "String" ],
+                    [ "number", "Number" ],
+                    [ "boolean", "Boolean" ],
+                ]
+            },
+        ],
+        output: "String",
+        inputsInline: true,
+        colour: categoryColor
+    }, (block) => {
+        const VAL = javascriptGenerator.valueToCode(block, 'VAL', javascriptGenerator.ORDER_ATOMIC);
+
+        return [`Scratch.Cast.to${TYPE}(${VAL})`, javascriptGenerator.ORDER_ATOMIC];
+    })
+
     // convert time lengths
     registerBlock(`${categoryPrefix}time`, {
         message0: "%1 %2 to %3",
