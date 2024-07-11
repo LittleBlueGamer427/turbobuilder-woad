@@ -99,6 +99,7 @@
         <block type="operators_length" />
     </category>
     <category name="Conversions" colour="#8BC059">
+        <block type="conversions_cast" />
         <block type="conversions_tonumber" />
         <block type="conversions_tostring" />
         <sep gap="48"></sep>
