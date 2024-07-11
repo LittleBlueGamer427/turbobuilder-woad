@@ -63,7 +63,7 @@ function register() {
         colour: categoryColor
     }, (block) => {
         const VAL = javascriptGenerator.valueToCode(block, 'VAL', javascriptGenerator.ORDER_ATOMIC);
-        const TYPE = javascriptGenerator.valueToCode(block, 'TYPE', javascriptGenerator.ORDER_ATOMIC);
+        const TYPE = block.getFieldValue('TYPE');
 
         return [`Scratch.Cast.to${TYPE}(${VAL})`, javascriptGenerator.ORDER_ATOMIC];
     })
